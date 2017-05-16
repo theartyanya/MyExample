@@ -2,7 +2,7 @@ package com.example.thear.myownexample.mvp.presenter;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.example.thear.myownexample.MyExampleMain;
+import com.example.thear.myownexample.MyExample;
 import com.example.thear.myownexample.Screens;
 import com.example.thear.myownexample.mvp.view.MyActivityView;
 
@@ -16,7 +16,7 @@ public class MyActivityPresenter extends MvpPresenter<MyActivityView> {
     Router router;
 
     public MyActivityPresenter() {
-        MyExampleMain.getComponent().inject(this);
+        MyExample.getComponent().inject(this);
     }
 
     @Override

@@ -14,6 +14,7 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.thear.myownexample.R;
+import com.example.thear.myownexample.mvp.model.ItemsArray;
 import com.example.thear.myownexample.mvp.presenter.NewFragmentPresenter;
 import com.example.thear.myownexample.mvp.view.NewFragment;
 
@@ -36,22 +37,16 @@ public class MyNewFragment extends MvpAppCompatFragment implements NewFragment {
     @BindView(R.id.my_list)
     ListView list;
 
-    @ProvidePresenter
-    NewFragmentPresenter getPresenter() {
-        return new NewFragmentPresenter(getActivity());
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.new_fragment, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        return inflater.inflate(R.layout.new_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +56,7 @@ public class MyNewFragment extends MvpAppCompatFragment implements NewFragment {
         listButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.createList();
+                mPresenter.onListButtonClick();
             }
         });
     }
@@ -73,7 +68,9 @@ public class MyNewFragment extends MvpAppCompatFragment implements NewFragment {
     }
 
     @Override
-    public void setAdapter(ArrayAdapter adapter) {
-        list.setAdapter(adapter);
+    public void setAdapter() {
+        ArrayAdapter<String> arrayAdapter
+                = new ArrayAdapter<String>(getActivity(), R.layout.list_item, ItemsArray.getItems());
+        list.setAdapter(arrayAdapter);
     }
 }

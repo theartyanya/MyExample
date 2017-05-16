@@ -19,12 +19,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MyFragment extends MvpAppCompatFragment implements MyExample {
-    private String s = "Hello";
     @InjectPresenter
     MyExamplePresenter mPresenter;
 
     @ProvidePresenter
-    public MyExamplePresenter mPresenter() {return new MyExamplePresenter(s);}
+    public MyExamplePresenter mPresenter() {
+        return new MyExamplePresenter("Hello");}
 
     @BindView(R.id.button)
     Button mButton;
@@ -38,14 +38,13 @@ public class MyFragment extends MvpAppCompatFragment implements MyExample {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

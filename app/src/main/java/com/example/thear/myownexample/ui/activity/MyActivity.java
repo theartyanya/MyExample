@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
-import com.example.thear.myownexample.MyExampleMain;
+import com.example.thear.myownexample.MyExample;
 import com.example.thear.myownexample.R;
 import com.example.thear.myownexample.Screens;
 import com.example.thear.myownexample.mvp.presenter.MyActivityPresenter;
@@ -21,8 +21,6 @@ import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.android.SupportFragmentNavigator;
 
 public class MyActivity extends MvpAppCompatActivity implements MyActivityView {
-    private String s = "Hello";
-
     @InjectPresenter
     MyActivityPresenter myActivityPresenter;
 
@@ -33,7 +31,7 @@ public class MyActivity extends MvpAppCompatActivity implements MyActivityView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
-        MyExampleMain.getComponent().inject(this);
+        MyExample.getComponent().inject(this);
     }
 
     private Navigator navigator = new SupportFragmentNavigator(getSupportFragmentManager(), R.id.container) {

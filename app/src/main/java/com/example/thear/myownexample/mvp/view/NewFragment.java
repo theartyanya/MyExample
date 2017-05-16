@@ -10,5 +10,5 @@ import com.arellomobile.mvp.MvpView;
 
 public interface NewFragment extends MvpView {
     void showText();
-    void setAdapter(ArrayAdapter arrayAdapter);
+    void setAdapter();
 }

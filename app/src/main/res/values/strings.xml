@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyOwnExample</string>
+    <string name="click_me_button_text">Click Me</string>
+    <string name="push_me_button_text">Push Me</string>
+    <string name="show_list_button_text">Show List</string>
+    <string name="click_to_back_button_text">Click to back</string>
 </resources>

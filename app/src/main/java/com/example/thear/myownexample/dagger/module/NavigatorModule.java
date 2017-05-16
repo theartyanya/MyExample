@@ -1,7 +1,5 @@
 package com.example.thear.myownexample.dagger.module;
 
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 import ru.terrakok.cicerone.Cicerone;
@@ -17,13 +15,11 @@ public class NavigatorModule {
     }
 
     @Provides
-    @Singleton
     public Router provideRouter() {
         return cicerone.getRouter();
     }
 
     @Provides
-    @Singleton
     public NavigatorHolder provideNavigatorHolder() {
         return cicerone.getNavigatorHolder();
     }

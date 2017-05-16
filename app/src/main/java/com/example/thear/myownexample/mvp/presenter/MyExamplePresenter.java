@@ -2,23 +2,22 @@ package com.example.thear.myownexample.mvp.presenter;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.example.thear.myownexample.MyExampleMain;
+import com.example.thear.myownexample.MyExample;
 import com.example.thear.myownexample.Screens;
-import com.example.thear.myownexample.mvp.view.MyExample;
 
 import javax.inject.Inject;
 
 import ru.terrakok.cicerone.Router;
 
 @InjectViewState
-public class MyExamplePresenter extends MvpPresenter<MyExample> {
+public class MyExamplePresenter extends MvpPresenter<com.example.thear.myownexample.mvp.view.MyExample> {
     private String s;
     @Inject
     Router router;
 
     public MyExamplePresenter(String s) {
         this.s = s;
-        MyExampleMain.getComponent().inject(this);
+        MyExample.getComponent().inject(this);
     }
 
     @Override

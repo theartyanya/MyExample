@@ -5,7 +5,7 @@ import android.app.Application;
 import com.example.thear.myownexample.dagger.AppComponent;
 import com.example.thear.myownexample.dagger.DaggerAppComponent;
 
-public class MyExampleMain extends Application {
+public class MyExample extends Application {
     private static AppComponent component;
 
     public static AppComponent getComponent() {
