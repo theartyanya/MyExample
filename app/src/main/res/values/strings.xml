@@ -4,4 +4,6 @@
     <string name="push_me_button_text">Push Me</string>
     <string name="show_list_button_text">Show List</string>
     <string name="click_to_back_button_text">Click to back</string>
+    <string name="recycler_view_button_text">RecyclerView List</string>
+    <string name="movie_cover_description">Movie cover</string>
 </resources>

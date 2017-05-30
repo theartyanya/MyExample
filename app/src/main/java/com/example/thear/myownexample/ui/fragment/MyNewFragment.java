@@ -20,6 +20,7 @@ import com.example.thear.myownexample.mvp.view.NewFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MyNewFragment extends MvpAppCompatFragment implements NewFragment {
     @InjectPresenter
@@ -27,12 +28,6 @@ public class MyNewFragment extends MvpAppCompatFragment implements NewFragment {
 
     @BindView(R.id.new_fragment)
     TextView mTextView;
-
-    @BindView(R.id.new_button)
-    Button mButton;
-
-    @BindView(R.id.list_button)
-    Button listButton;
 
     @BindView(R.id.my_list)
     ListView list;
@@ -47,18 +42,7 @@ public class MyNewFragment extends MvpAppCompatFragment implements NewFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.toMain();
-            }
-        });
-        listButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.onListButtonClick();
-            }
-        });
+
     }
 
     @Override
@@ -67,10 +51,15 @@ public class MyNewFragment extends MvpAppCompatFragment implements NewFragment {
             mTextView.setText("Hey There");
     }
 
+    @OnClick(R.id.list_button)
+    public void showList() {
+        mPresenter.onListButtonClick();
+    }
+
     @Override
     public void setAdapter() {
         ArrayAdapter<String> arrayAdapter
-                = new ArrayAdapter<String>(getActivity(), R.layout.list_item, ItemsArray.getItems());
+                = new ArrayAdapter<>(getActivity(), R.layout.list_item, ItemsArray.getItems());
         list.setAdapter(arrayAdapter);
     }
 }

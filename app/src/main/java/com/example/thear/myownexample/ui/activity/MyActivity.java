@@ -13,6 +13,7 @@ import com.example.thear.myownexample.mvp.presenter.MyActivityPresenter;
 import com.example.thear.myownexample.mvp.view.MyActivityView;
 import com.example.thear.myownexample.ui.fragment.MyFragment;
 import com.example.thear.myownexample.ui.fragment.MyNewFragment;
+import com.example.thear.myownexample.ui.fragment.RecyclerViewFragment;
 
 import javax.inject.Inject;
 
@@ -43,6 +44,8 @@ public class MyActivity extends MvpAppCompatActivity implements MyActivityView {
                     return new MyFragment();
                 case Screens.SECOND_SCREEN:
                     return new MyNewFragment();
+                case Screens.THIRD_SCREEN:
+                    return new RecyclerViewFragment();
                 default:
                     return null;
             }

@@ -32,4 +32,8 @@ public class MyExamplePresenter extends MvpPresenter<com.example.thear.myownexam
     public void swapFragment() {
         router.navigateTo(Screens.SECOND_SCREEN);
     }
+
+    public void onRecyclerViewClicked() {
+        router.navigateTo(Screens.THIRD_SCREEN);
+    }
 }

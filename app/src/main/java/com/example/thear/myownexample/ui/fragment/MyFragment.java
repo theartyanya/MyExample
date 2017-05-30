@@ -17,6 +17,7 @@ import com.example.thear.myownexample.mvp.view.MyExample;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MyFragment extends MvpAppCompatFragment implements MyExample {
     @InjectPresenter
@@ -25,12 +26,6 @@ public class MyFragment extends MvpAppCompatFragment implements MyExample {
     @ProvidePresenter
     public MyExamplePresenter mPresenter() {
         return new MyExamplePresenter("Hello");}
-
-    @BindView(R.id.button)
-    Button mButton;
-
-    @BindView(R.id.button_swap)
-    Button mButtonSwap;
 
     @BindView(R.id.text_view)
     TextView mTextView;
@@ -45,18 +40,21 @@ public class MyFragment extends MvpAppCompatFragment implements MyExample {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.onButtonClick();
-            }
-        });
-        mButtonSwap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.swapFragment();
-            }
-        });
+    }
+
+    @OnClick(R.id.button)
+    public void onButtonClick() {
+        mPresenter.onButtonClick();
+    }
+
+    @OnClick(R.id.button_swap)
+    public void onSwapButtonClick() {
+        mPresenter.swapFragment();
+    }
+
+    @OnClick(R.id.recycler_view_fragment_button)
+    public void onRecyclerViewCLick() {
+        mPresenter.onRecyclerViewClicked();
     }
 
     @Override
